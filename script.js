@@ -114,20 +114,41 @@ function createGameOptions() {
   });
   optionsDiv.appendChild(timeDiv);
 
+  // Remove old action buttons if present
+  let actionDiv = document.getElementById('action-buttons');
+  if (actionDiv) actionDiv.remove();
+  actionDiv = document.createElement('div');
+  actionDiv.className = 'mobile-toggle-wrapper';
+  actionDiv.id = 'action-buttons';
+  // Mobile mode button
+  const mobileBtn = document.getElementById('mobile-toggle');
+  if (mobileBtn) mobileBtn.remove();
+  const newMobileBtn = document.createElement('button');
+  newMobileBtn.id = 'mobile-toggle';
+  newMobileBtn.title = 'Toggle Mobile/Desktop Mode';
+  newMobileBtn.textContent = mobileMode ? 'DESKTOP MODE' : 'MOBILE MODE';
+  newMobileBtn.className = mobileMode ? 'active' : '';
+  newMobileBtn.onclick = () => setMobileMode(!mobileMode);
+  actionDiv.appendChild(newMobileBtn);
   // Start button
   const startBtn = document.createElement('button');
-  startBtn.textContent = 'START';
+  startBtn.id = 'start-btn';
   startBtn.className = 'key';
   startBtn.style.fontWeight = 'bold';
+  startBtn.style.marginLeft = '12px';
+  startBtn.textContent = 'START';
   startBtn.onclick = () => {
     if (!selectedTime || !selectedLength) {
       showTerminalMessage('SELECT TIME AND LETTER COUNT', 'error');
       return;
     }
     startGame(selectedLength, selectedTime);
-    optionsDiv.style.display = 'none';
+    document.getElementById('game-options').style.display = 'none';
   };
-  optionsDiv.appendChild(startBtn);
+  actionDiv.appendChild(startBtn);
+  // Place under main-content
+  const mainContent = document.getElementById('main-content');
+  mainContent.appendChild(actionDiv);
 
   terminal.prepend(optionsDiv);
   highlightSelected('letter', selectedLength);
