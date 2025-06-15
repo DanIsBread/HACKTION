@@ -162,6 +162,28 @@ body {
 .key:active {
   filter: brightness(0.8);
 }
+#mobile-toggle {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+  background: #10181a;
+  color: #33ff33;
+  border: 2px solid #33ff33;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 8px #33ff3340;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+#mobile-toggle.active {
+  background: #33ff33;
+  color: #10181a;
+  border-color: #33ff33;
+}
 @media (max-width: 600px) {
   #main-content {
     width: 100vw;
@@ -206,4 +228,47 @@ body {
     font-size: 1rem;
     margin-bottom: 4px;
   }
+}
+body.force-mobile #main-content {
+  width: 100vw;
+  padding: 0;
+}
+body.force-mobile #terminal-frame {
+  min-width: 0 !important;
+  width: 98vw;
+  max-width: 98vw;
+  padding: 12px 2vw 16px 2vw;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+}
+body.force-mobile #game {
+  gap: 4px;
+}
+body.force-mobile .row {
+  gap: 4px;
+}
+body.force-mobile .cell {
+  width: 32px;
+  height: 32px;
+  font-size: 1.2rem;
+}
+body.force-mobile #keyboard {
+  gap: 4px;
+}
+body.force-mobile .keyboard-row {
+  gap: 2px;
+}
+body.force-mobile .key {
+  padding: 8px 4px;
+  font-size: 0.9rem;
+  min-width: 24px;
+}
+body.force-mobile #title {
+  font-size: 1.3rem;
+  margin-top: 16px;
+  margin-bottom: 10px;
+}
+body.force-mobile #timer {
+  font-size: 1rem;
+  margin-bottom: 4px;
 }

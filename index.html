@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <button id="mobile-toggle" title="Toggle Mobile/Desktop Mode">MOBILE MODE</button>
   <canvas id="matrix-bg"></canvas>
   <div id="main-content">
     <h1 id="title">HACKTION</h1>
@@ -53,6 +54,16 @@
       columns = Math.floor(width / fontSize);
       drops = Array(columns).fill(1);
     });
+    // Mobile/Desktop toggle logic
+    const mobileToggle = document.getElementById('mobile-toggle');
+    let mobileMode = false;
+    function setMobileMode(on) {
+      mobileMode = on;
+      document.body.classList.toggle('force-mobile', on);
+      mobileToggle.classList.toggle('active', on);
+      mobileToggle.textContent = on ? 'DESKTOP MODE' : 'MOBILE MODE';
+    }
+    mobileToggle.onclick = () => setMobileMode(!mobileMode);
   </script>
 </body>
 </html>
