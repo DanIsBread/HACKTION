@@ -162,3 +162,48 @@ body {
 .key:active {
   filter: brightness(0.8);
 }
+@media (max-width: 600px) {
+  #main-content {
+    width: 100vw;
+    padding: 0;
+  }
+  #terminal-frame {
+    min-width: 0 !important;
+    width: 98vw;
+    max-width: 98vw;
+    padding: 12px 2vw 16px 2vw;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+  }
+  #game {
+    gap: 4px;
+  }
+  .row {
+    gap: 4px;
+  }
+  .cell {
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+  }
+  #keyboard {
+    gap: 4px;
+  }
+  .keyboard-row {
+    gap: 2px;
+  }
+  .key {
+    padding: 8px 4px;
+    font-size: 0.9rem;
+    min-width: 24px;
+  }
+  #title {
+    font-size: 1.3rem;
+    margin-top: 16px;
+    margin-bottom: 10px;
+  }
+  #timer {
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+}
